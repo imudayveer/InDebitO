@@ -12,7 +12,7 @@ ___
 
 **Windows**
 
-1. Download this project from [GitHub](https://www.github.com/imudayveer/InDebitO) or do `git clone https://github.com/imudayveer/InDebitO.git`.
+1. Download this project from [GitHub](https://www.github.com/imudayveer/InDebitO) or do `git clone https://github.com/imudayveer/InDebitO.git` (if doing git clone, jump to step 5 using cd InDebitO).
 2. Install [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 3. Open the folder where you downloaded the files.
 4. In address bar, type `wsl`.
@@ -24,4 +24,9 @@ ___
 
 1. Download this project from [GitHub](https://www.github.com/imudayveer/InDebitO) or do `git clone https://github.com/imudayveer/InDebitO.git`.
 2. Open terminal in the folder.
+3. Continue from *Step 5* of *Windows*.
+
+**Termux (Android)**
+1. Open Termux.
+2. Do `git clone https://github.com/imudayveer/InDebitO.git && cd InDebitO`.
 3. Continue from *Step 5* of *Windows*.
