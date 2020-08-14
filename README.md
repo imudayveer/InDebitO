@@ -1,5 +1,5 @@
 # InDebito
-**InDebito** is a personal transaction manager *web appication* made with Flask, HTML, CSS, SQL and a little bit JavaScript. This application is the climax of CS50x (Introduction to Computer Science), the online course by Harvard University.
+**InDebito** is a personal transaction manager *web application* made with Flask, HTML, CSS, SQL and a little bit JavaScript. This application is the climax of CS50x (Introduction to Computer Science), the online course by Harvard University.
 ___
 ## Features
 * Index page with a beautiful Transaction Table and Expense Charts made with **Google Charts API**.
