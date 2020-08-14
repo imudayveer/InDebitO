@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Income
+{% endblock %}
+
+{% block main %}
+    <h1>
+        Income
+    </h1>
+    <form action="/income" method="post">
+        <div class="center pad">
+            <label for="source">
+                Source:
+            </label>
+            <select name="source" class="input">
+                <option value="Account">Account</option>
+                <option value="Cash">Cash</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Debit Card">Debit Card</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Voucher">Voucher</option>
+            </select>
+        </div>
+        <div class="center pad">
+            <label for="category">
+                Category:
+            </label>
+            <select name="category" class="input">
+                <option value="Allowance">Allowance</option>
+                <option value="Bonus">Bonus</option>
+                <option value="Petty Cash">Petty Cash</option>
+                <option value="Salary">Salary</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        <div class="center pad">
+            <input name="amount" class="input" placeholder="Amount (Except ₹)" type="text">
+        </div>
+        <div class="center pad">
+            <textarea name="remarks" class="textarea" placeholder="Remarks"></textarea>
+        </div>
+        <div class="center pad">
+            <button type="submit" class="button">Add</button>
+        </div>
+    </form>
+{% endblock %}

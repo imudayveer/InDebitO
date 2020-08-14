@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sorry
+{% endblock %}
+
+{% block main %}
+    <img alt="{{ top }}" class="border center-img pad" src="https://memegen.link/kermit/{{ top | urlencode }}/{{ bottom | urlencode}}.jpg?watermark=none" title="{{ top }}">
+{% endblock %}

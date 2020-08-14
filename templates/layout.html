@@ -1,0 +1,95 @@
+<!--
+MIT License
+
+Copyright (c) 2020 imudayveer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+                <link href="/static/styles.css" rel="stylesheet">
+        
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+        <script>
+            $(function() {
+            $(".toggle").on("click", function() {
+                if ($(".item").hasClass("active")) {
+                    $(".item").removeClass("active");
+                } else {
+                    $(".item").addClass("active");
+                }
+                });
+            });
+        </script>
+
+        {% block head %}{% endblock %}
+
+        <title>
+            InDebitO: {% block title %}{% endblock %}
+        </title>
+    </head>
+
+    <body>
+        <nav>
+            <ul class="menu">
+                {% if session.user_id %}
+                    <li class="logo"><a href="/">InDebitO</a></li>
+                    <li class="item"><a href="/income">Income</a></li>
+                    <li class="item"><a href="/expense">Expense</a></li>
+                    <li class="item"><a href="/search">Search</a></li>
+                    <li class="item"><a href="/profile">Profile</a></li>
+                    <li class="item"><a href="/about">About</a></li>
+                    </li>
+                    <li class="item button_nb"><a href="/logout">Log Out</a></li>
+                    <li class="toggle"><span class="bars"></span></li>
+                {% else %}
+                    <li class="logo"><a>InDebitO</a></li>
+                    <li class="item"><a href="/about">About</a></li>
+                    </li>
+                    <li class="item button_nb"><a href="/login">Log In</a></li>
+                    <li class="item button_nb secondary"><a href="/register">Register</a></li>
+                    <li class="toggle"><span class="bars"></span></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="center flash">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+    </body>
+</html>

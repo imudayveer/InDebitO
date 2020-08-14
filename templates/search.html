@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <h1>
+        Search
+    </h1>
+    <form action="/search" method="post">
+        <div class="center pad">
+            <input autocomplete="off" autofocus name="search" class="input" placeholder="Search Keywords" type="text">
+        </div>
+        <div class="center pad">
+            <button type="submit" class="button">Change</button>
+        </div>
+    </form>
+{% endblock %}

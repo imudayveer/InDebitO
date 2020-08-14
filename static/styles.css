@@ -1,0 +1,400 @@
+/*
+MIT License
+
+Copyright (c) 2020 imudayveer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+/* Navigation Bar, Credits - FollowAndrew*/
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+nav {
+    background: rgb(78, 77, 83);
+    padding: 5px 20px;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.logo a:hover {
+    text-decoration: none;
+}
+.menu li {
+    font-size: 18px;
+    padding: 15px 5px;
+    white-space: nowrap;
+}
+.logo a,
+.toggle a {
+    font-size: 24px;
+}
+.button_nb.secondary {
+    border-bottom: 1px #444 solid;
+}
+  
+/* Mobile menu */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle {
+    order: 1;
+}
+.item.button_nb {
+    order: 2;
+}
+.item {
+    width: 100%;
+    text-align: center;
+    order: 3;
+    display: none;
+}
+.item.active {
+    display: block;
+}
+  
+/* Navbar Toggle */
+.toggle {
+    cursor:pointer;
+}
+.bars {
+    background: #999;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+}
+.bars:before,
+.bars:after {
+    background: #999;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+.bars:before {
+    top: 5px;
+}
+.bars:after {
+    top: -5px;
+}
+  
+/* Tablet menu */
+@media all and (min-width: 468px) {
+    .menu {
+        justify-content: center;
+    }
+  
+    .logo {
+        flex: 1;
+    }
+  
+    .item.button_nb {
+        width: auto;
+        order: 1;
+        display: block;
+    }
+    .toggle {
+        order: 2;
+    }
+    .button_nb.secondary {
+        border: 0;
+    }
+    .button_nb a {
+        padding: 7.5px 15px;
+        background: #195BFF;
+        border: 1.5px #00195A solid;
+        border-radius:50em;
+    }
+    .button_nb.secondary a {
+        background: transparent;    
+    }
+    .button_nb a:hover {
+        text-decoration: none;
+        transition:all .25s;
+    }
+    .button_nb:not(.secondary) a:hover {
+        background: #195BFF;
+        border-color: #00195A;
+    }
+    .button_nb.secondary a:hover {
+        color: #ddd;
+    }
+}
+  
+/* Desktop menu */
+@media all and (min-width: 768px) {
+    .item {
+        display: block;
+        width: auto;
+    }
+    .toggle {
+        display: none;
+    }
+    .logo {
+        order: 0;
+    }
+    .item {
+        order: 1;
+    }
+    .button_nb {
+        order: 2;
+    }
+    .menu li {
+        padding: 15px 10px;
+    }
+    .menu li.button_nb {
+        padding-right: 0;
+    }
+}
+/* Navigation Bar Ends */
+
+
+h1 {
+    color: #195BFF;
+    animation: all .25s ease;
+    text-align: center;
+    padding-top: 75px;
+    padding-bottom: 15px;
+    font-size: 3.5em;
+}
+
+h2 {
+    color: #195BFF;
+    animation: all .25s ease;
+    text-align: center;
+    font-size: 1.7em;
+}
+
+.about {
+    font-size: 2.5em;
+    padding-top: 50px;
+}
+
+p {
+    font-size: 25px;
+} 
+
+.link {
+    color: #195BFF;
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+.flash {
+    color: green;
+    padding-top: 15px;
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 14px;
+    border: 2px solid transparent;
+    background: whitesmoke;
+    outline: none;
+    transition: all .25s ease;
+    font-size: .9rem;
+}
+
+.input:hover {
+    border: 2px solid rgba(0, 0, 0, .1);
+}
+
+.input:focus {
+    border: 2px solid #195BFF;
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+.pad {
+    padding-top: 20px;
+}
+
+.pad_side {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.pad_para {
+    padding-top: 35px;
+}
+
+.button {
+    padding: 12px 22px;
+    border-radius: 16px;
+    border: 0px;
+    background: #195BFF;
+    color: whitesmoke;
+    font-size: .9rem;
+    transition: all .25s ease;
+    outline: none;
+}
+
+.button:hover {
+    transform: translate(0, -6px);
+    box-shadow: 0px 10px 20px 0px rgba(25, 91, 255, .4);
+}
+
+.button:hover {
+    transform: translate(0, -6px);
+    box-shadow: 0px 5px 10px 0px rgba(25, 91, 255, .6);
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.textarea {
+    padding: 10px;
+    resize: none;
+    outline: none;
+
+    border-radius: 14px;
+    transition: all .25s ease;
+    font-size: .9rem;
+    min-width: 200px;
+    font-weight: 500;
+    background: whitesmoke;
+    border: 2px solid rgba(0, 0, 0, 0);
+}
+
+.textarea:hover {
+    border: 2px solid rgba(0, 0, 0, .1);
+}
+
+.textarea:focus {
+    border: 2px solid #195BFF;
+}
+
+.textarea::placeholder {
+    color: rgba(0, 0, 0, .4);
+}
+
+.trans_table {
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, .05);
+    border-collapse: collapse;
+    font-size: 1rem;
+    overflow: hidden;
+    min-width: 600px;
+    grid-area: trans_table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trans_table th {
+    padding: 10px 15px;
+    text-align: center;
+    background: whitesmoke;
+    color: rgba(25, 91, 255, .6);
+    font-weight: 500;
+}
+
+.trans_table td {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.trans_table tr {
+    cursor: pointer;
+    transition: all .25s ease;
+    color: rgba(0, 0, 0, .6)
+}
+
+.trans_table tbody tr:hover {
+    background: rgba(25, 91, 255, .1);
+    color: #195BFF;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "chart_category trans_table"
+        "chart_source trans_table";
+    grid-gap: 0.2rem;
+}
+
+.chart_category {
+    grid-area: chart_category;
+    margin-left: auto;
+    margin-right: auto;
+}
+.chart_source {
+    grid-area: chart_source;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 1050px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+        "trans_table"
+        "chart_category"
+        "chart_source";
+    }
+}
+
+.highlight {
+    color: red;
+    font-weight: bold;
+}
+
+.expense_cell {
+    color: red;
+    font-weight: bold;
+}
+
+.income_cell {
+    color: green;
+    font-weight: bold;
+}

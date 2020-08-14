@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change Username
+{% endblock %}
+
+{% block main %}
+    <h1>
+        Change Username
+    </h1>
+    <form action="/changeusername" method="post">
+        <div class="center pad">
+            <input autocomplete="off" autofocus name="new_usrnm" class="input" placeholder="New Username" type="text">
+        </div>
+        <div class="center pad">
+            <button type="submit" class="button">Change</button>
+        </div>
+    </form>
+{% endblock %}
