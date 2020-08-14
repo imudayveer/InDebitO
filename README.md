@@ -24,4 +24,4 @@ ___
 
 1. Download this project from [GitHub](https://www.github.com/imudayveer/InDebitO) or do `git clone https://github.com/imudayveer/InDebitO.git`.
 2. Open terminal in the folder.
-3. Continue from *Step 3* of *Windows*.
+3. Continue from *Step 5* of *Windows*.
