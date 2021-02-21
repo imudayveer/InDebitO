@@ -78,20 +78,51 @@
         <div id="chart_category" class="chart_category"></div>
         <div id="chart_source" class="chart_source"></div>
 
-        <table class="trans_table">
-            <thead>
-                <tr>
-                    <th>Transaction Type</th>
-                    <th>Source</th>
-                    <th>Category</th>
-                    <th>Shop or Person</th>
-                    <th>Remarks</th>
-                    <th>Date and Time</th>            
-                    <th>Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if trans_db|length > 10 %}
+        <div class="trans_table_scroll">
+            <table class="trans_table">
+                <thead>
+                    <tr>
+                        <th>Transaction Type</th>
+                        <th>Source</th>
+                        <th>Category</th>
+                        <th>Shop or Person</th>
+                        <th>Remarks</th>
+                        <th>Date and Time</th>            
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if trans_db|length > 10 %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="income_cell">TOTAL INCOME</td>
+                            <td>{{ inr(grand_total_i) }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>   
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="expense_cell">TOTAL EXPENSE</td>
+                            <td>{{ inr(grand_total_e) }}</td>
+                        </tr>
+                    {% endif %}
+                    {% for i in trans_db %}
+                        <tr>
+                            <td>{{ i["trans_type"] }}</td>
+                            <td>{{ i["source"] }}</td>
+                            <td>{{ i["category"] }}</td>
+                            <td>{{ i["s_p"] }}</td>
+                            <td>{{ i["remarks"] }}</td>
+                            <td>{{ i["date_time"] }}</td>
+                            <td>{{ inr(i["amount"]) }}</td>
+                        </tr>
+                    {% endfor %}
                     <tr>
                         <td></td>
                         <td></td>
@@ -102,7 +133,7 @@
                         <td>{{ inr(grand_total_i) }}</td>
                     </tr>
                     <tr>
-                        <td></td>   
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -110,37 +141,8 @@
                         <td class="expense_cell">TOTAL EXPENSE</td>
                         <td>{{ inr(grand_total_e) }}</td>
                     </tr>
-                {% endif %}
-                {% for i in trans_db %}
-                    <tr>
-                        <td>{{ i["trans_type"] }}</td>
-                        <td>{{ i["source"] }}</td>
-                        <td>{{ i["category"] }}</td>
-                        <td>{{ i["s_p"] }}</td>
-                        <td>{{ i["remarks"] }}</td>
-                        <td>{{ i["date_time"] }}</td>
-                        <td>{{ inr(i["amount"]) }}</td>
-                    </tr>
-                {% endfor %}
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="income_cell">TOTAL INCOME</td>
-                    <td>{{ inr(grand_total_i) }}</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="expense_cell">TOTAL EXPENSE</td>
-                    <td>{{ inr(grand_total_e) }}</td>
-                </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}

@@ -352,6 +352,11 @@ p {
     color: #195BFF;
 }
 
+.trans_table_scroll {
+    overflow: hidden;
+}
+
+
 .container {
     display: grid;
     grid-template-columns: 1fr 3fr;
