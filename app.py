@@ -63,7 +63,7 @@ db = SQL("sqlite:///data.db")
 # Show all recent transactions and charts
 @app.route("/")
 @login_required
-def index():    
+def index():
     # Query database for transactions
     trans_db = db.execute("SELECT * FROM 'transaction' WHERE user_id = :user_id ORDER BY date_time DESC",
                             user_id = session["user_id"])
@@ -88,7 +88,7 @@ def index():
                 category_dict_e[i["category"]] = i["amount"]
             else:
                 category_dict_e[i["category"]] = category_dict_e[i["category"]] + i["amount"]
-            
+
             if i["source"] not in source_dict_e:
                 source_dict_e[i["source"]] = i["amount"]
             else:
@@ -136,7 +136,7 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    
+
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
 
@@ -150,7 +150,7 @@ def register():
 
         # Password checking
         if request.form.get("pwd") != request.form.get("pwd_con"):
-            return sorry("passwords didn't matched") 
+            return sorry("passwords didn't matched")
 
         # Hashing password and adding it in database
         password_hashed = generate_password_hash(request.form.get("pwd"))
@@ -158,7 +158,7 @@ def register():
                             usrnm=request.form.get("usrnm"),
                             hash=password_hashed)
 
-        # Checks if username available             
+        # Checks if username available
         if not register_new_user:
             return sorry("username taken")
 
@@ -170,7 +170,7 @@ def register():
 
         # Redirect user to home page
         return redirect("/")
-    
+
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("register.html")
@@ -214,7 +214,7 @@ def expense():
 
         # Redirect user to home page
         return redirect("/")
-    
+
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("expense.html")
@@ -246,7 +246,7 @@ def income():
 
         # Redirect user to home page
         return redirect("/")
-    
+
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("income.html")
@@ -270,7 +270,7 @@ def changeusername():
         if not request.form.get("new_usrnm"):
             return sorry("must provide input")
 
-        # Checks if username already available 
+        # Checks if username already available
         check_usrnm = db.execute("SELECT * FROM 'users' WHERE username = :usrnm",
                                     usrnm=request.form.get("new-usrnm"))
         # Returns sorry if yes
@@ -280,10 +280,10 @@ def changeusername():
         # Update new username in database
         new_usrnm = db.execute("UPDATE 'users' SET username = :usrnm",
                                 usrnm=request.form.get("new_usrnm"))
-        
+
         # Flash a message
         flash("Username Changed Successfully!!!")
-        
+
         # Redirect user to home page
         return redirect("/")
 
@@ -320,13 +320,13 @@ def changepassword():
         db.execute("UPDATE users SET hash = :hash WHERE id = :id",
                     hash = generate_password_hash(request.form.get("new_pwd")),
                     id = session["user_id"])
-        
+
         # Flash a message
         flash("Password Changed!!!")
 
         # Redirect user to home page
         return redirect("/")
-    
+
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("changepassword.html")
@@ -347,7 +347,7 @@ def delaccapp():
 
         # Deletes user from db
         db.execute("DELETE FROM 'users' WHERE id = :id",
-                        id = session["user_id"]) 
+                        id = session["user_id"])
 
         # Forget any user_id
         session.clear()
@@ -367,7 +367,7 @@ def delaccapp():
 @app.route("/about")
 def about():
     return render_template("about.html")
-        
+
 
 # Search db for keywords
 @app.route("/search", methods=["GET", "POST"])
@@ -375,7 +375,7 @@ def about():
 def search():
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
-        
+
         # Ensure everything was submitted
         if not request.form.get("search"):
             return sorry("input required")
@@ -387,7 +387,7 @@ def search():
 
         # Returns a page with search results
         return render_template("searched.html", trans_db_search = trans_db_search, inr = inr)
-    
+
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("search.html")
